@@ -18,7 +18,7 @@ class SyncDiagnostic {
         SyncDiagnostic(rclcpp::Node * node, double tolerance = 0.1, int windowSize = 5) :
 		node_(node),
 		diagnosticUpdater_(node),
-		frequencyStatus_(diagnostic_updater::FrequencyStatusParam(&targetFrequency_, &targetFrequency_, tolerance), node->get_clock()),
+		frequencyStatus_(diagnostic_updater::FrequencyStatusParam(&targetFrequency_, &targetFrequency_, tolerance)),
 		timeStampStatus_(diagnostic_updater::TimeStampStatusParam(), node->get_clock()),
 		compositeTask_("Sync status"),
 		lastCallbackCalledStamp_(rtabmap_conversions::timestampFromROS(node_->now())-1),

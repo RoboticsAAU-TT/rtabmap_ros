@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 project(rtabmap_sync)
 
+find_package(PCL REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(message_filters REQUIRED)
@@ -37,6 +38,8 @@ configure_file(cmake/extra_configs.cmake.in cmake/extra_configs.cmake IMMEDIATE 
 
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/include
+  ${PCL_INCLUDE_DIRS}
+  ${PCL_LIBRARY_DIRS}
 )
 
 # libraries
